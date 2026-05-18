@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Deletion - MamaMinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --surface: #131A2A;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #FF8E8E;
+      --accent: #E29E85;
+      --text: #F9FAFB;
+      --muted: #6B7280;
+      --muted-light: #A1A8B9;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+    /* NOISE TEXTURE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; position: relative; z-index: 1; }
+    h1 { font-size: 42px; font-weight: 900; margin-bottom: 40px; color: #EF4444; }
+    h2 { font-size: 24px; font-weight: 800; margin-top: 40px; margin-bottom: 20px; color: var(--accent); }
+    p { margin-bottom: 20px; color: var(--muted-light); }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin: 40px 0; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--primary); }
+    .step { display: flex; gap: 16px; margin-bottom: 24px; }
+    .step-num { width: 28px; height: 28px; background: rgba(255, 142, 142, 0.08); border: 1px solid rgba(255, 142, 142, 0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: var(--primary); flex-shrink: 0; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted-light); text-decoration: none; }
+    footer a:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Home
+    </a>
+    
+    <h1>Account & Log Purge Policy</h1>
+    
+    <p>At MamaMinder, you retain full ownership of your baby logs. Because our application is constructed on a privacy-first, client-side model, removing your baby data and clearing your active profiles is completed directly on your device.</p>
+    
+    <div class="card">
+      <h2>How to completely wipe your data</h2>
+      
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <p><strong>Purge Baby Profiles:</strong> Open the MamaMinder application, go to the Baby settings screen, and select "Delete Profile" for each baby. This immediately Purges all local feeds, naps, diaper changes, and WHO growth milestones from your device sandbox.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <p><strong>Disconnect Partner Sync:</strong> If you enabled co-parent synchronicity, navigate to the Sync settings page and tap "Disconnect". This terminates all active secured channels and purges co-parent tokens from the iOS Keychain or Android Secure Enclave.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <p><strong>Cancel Active App Store Subscriptions:</strong> If you unlocked the premium tier, you must cancel the subscription through your Apple App Store settings. Since we do not host a middle-man backend dashboard, deleting the app from your device does not automatically cancel Apple Billing agreements.</p>
+        </div>
+      </div>
+    </div>
+    
+    <h2>Data Erasure Guarantee</h2>
+    <p>Once you trigger a profile delete inside the application, your nursery logs are immediately overwritten and destroyed. We maintain no server backups, keeping your infant's information private and secure.</p>
+    
+    <h2>Contact Support</h2>
+    <p>If you need assistance executing the log purge or want to request deletion of anonymous RevenueCat subscription logs, please contact us at <a href="mailto:black0pal@yahoo.com" style="color:var(--primary); text-decoration:none;">black0pal@yahoo.com</a>.</p>
+  </div>
+  
+  <footer>
+    <div class="container" style="padding:0;">
+      <p>&copy; 2026 MamaMinder. Built for the baby-care community.</p>
+    </div>
+  </footer>
+</body>
+</html>
