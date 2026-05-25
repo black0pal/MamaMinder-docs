@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MamaMinder - Premium Baby Tracking & Co-Parenting Dashboard</title>
-  <meta name="description" content="A beautiful, secure, offline-first mobile newborn care companion. Track feeds, sleep, diaper changes, and WHO growth milestones with one-hand tactile simplicity." />
-  
+  <meta name="description"
+    content="A beautiful, secure, offline-first mobile newborn care companion. Track feeds, sleep, diaper changes, and WHO growth milestones with one-hand tactile simplicity." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --bg: #0B0F19;
       --surface: #111827;
-      --border: rgba(255,255,255,0.07);
-      --primary: #FF8E8E; /* Warm Rose */
+      --border: rgba(255, 255, 255, 0.07);
+      --primary: #FF8E8E;
+      /* Warm Rose */
       --primary-dim: rgba(255, 142, 142, 0.08);
       --primary-border: rgba(255, 142, 142, 0.18);
-      --accent: #E29E85; /* Deep Peach */
+      --accent: #E29E85;
+      /* Deep Peach */
       --accent-dim: rgba(226, 158, 133, 0.08);
       --text: #F9FAFB;
       --muted: #6B7280;
       --muted-light: #A1A8B9;
-      --voice: #7D52B3; /* Oxford Voice Purple */
+      --voice: #7D52B3;
+      /* Oxford Voice Purple */
       --success: #60A5FA;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -58,11 +73,31 @@
       pointer-events: none;
       z-index: 0;
     }
-    .blob-1 { width: 500px; height: 500px; background: rgba(255, 142, 142, 0.06); top: -150px; right: -100px; }
-    .blob-2 { width: 400px; height: 400px; background: rgba(125, 82, 179, 0.04); bottom: 10%; left: -100px; }
+
+    .blob-1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 142, 142, 0.06);
+      top: -150px;
+      right: -100px;
+    }
+
+    .blob-2 {
+      width: 400px;
+      height: 400px;
+      background: rgba(125, 82, 179, 0.04);
+      bottom: 10%;
+      left: -100px;
+    }
 
     /* LAYOUT */
-    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
 
     /* NAV */
     nav {
@@ -114,9 +149,10 @@
       border-radius: 8px;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     }
-    .nav-link:hover { 
-      background: var(--primary); 
-      color: #000; 
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #000;
       box-shadow: 0 0 15px rgba(255, 142, 142, 0.2);
     }
 
@@ -152,8 +188,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
     }
 
     .hero h1 {
@@ -199,7 +244,12 @@
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 0 30px rgba(255, 142, 142, 0.2);
     }
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 0 40px rgba(255, 142, 142, 0.3); }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 0 40px rgba(255, 142, 142, 0.3);
+    }
 
     .btn-secondary {
       display: inline-flex;
@@ -215,7 +265,11 @@
       border: 1px solid var(--border);
       transition: border-color 0.2s, background 0.2s;
     }
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+    }
 
     /* SIMULATOR PREVIEW */
     .terminal {
@@ -224,11 +278,11 @@
       border-radius: 16px;
       overflow: hidden;
       margin: 80px 0;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
     }
 
     .terminal-bar {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       padding: 14px 20px;
       display: flex;
       align-items: center;
@@ -236,10 +290,23 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot-red { background: #FF5F57; }
-    .dot-yellow { background: #FEBC2E; }
-    .dot-green { background: #28C840; }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background: #FF5F57;
+    }
+
+    .dot-yellow {
+      background: #FEBC2E;
+    }
+
+    .dot-green {
+      background: #28C840;
+    }
 
     .terminal-title {
       margin-left: auto;
@@ -256,12 +323,29 @@
       line-height: 2;
     }
 
-    .t-prompt { color: var(--primary); }
-    .t-cmd { color: var(--text); }
-    .t-comment { color: var(--muted); }
-    .t-success { color: var(--success); }
-    .t-value { color: var(--accent); }
-    .t-pink { color: #F472B6; }
+    .t-prompt {
+      color: var(--primary);
+    }
+
+    .t-cmd {
+      color: var(--text);
+    }
+
+    .t-comment {
+      color: var(--muted);
+    }
+
+    .t-success {
+      color: var(--success);
+    }
+
+    .t-value {
+      color: var(--accent);
+    }
+
+    .t-pink {
+      color: #F472B6;
+    }
 
     /* FEATURES */
     .section-label {
@@ -296,7 +380,11 @@
       padding: 28px;
       transition: border-color 0.2s, transform 0.2s;
     }
-    .feature-card:hover { border-color: var(--primary-border); transform: translateY(-2px); }
+
+    .feature-card:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-2px);
+    }
 
     .feature-icon {
       width: 44px;
@@ -395,7 +483,10 @@
       align-items: center;
       gap: 10px;
     }
-    .plan-features li:last-child { border-bottom: none; }
+
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
 
     .plan-features li::before {
       content: '';
@@ -445,7 +536,10 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .support-email:hover { background: rgba(255, 142, 142, 0.15); }
+
+    .support-email:hover {
+      background: rgba(255, 142, 142, 0.15);
+    }
 
     /* FOOTER */
     footer {
@@ -456,10 +550,17 @@
       font-size: 13px;
     }
 
-    footer a { color: var(--muted-light); text-decoration: none; }
-    footer a:hover { color: var(--primary); }
+    footer a {
+      color: var(--muted-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
   </style>
 </head>
+
 <body>
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -483,11 +584,16 @@
       <div class="hero-badge">Verified Theme Consolidation Complete</div>
       <h1>Your Baby's Care,<br /><span>Beautifully Tracked</span></h1>
       <p class="hero-sub">
-        A premium, secure co-parenting platform for modern parents. Track feeding, sleep background timers, diaper changes, and growth percentiles with tactile, offline-first simplicity.
+        A premium, secure co-parenting platform for modern parents. Track feeding, sleep background timers, diaper
+        changes, and growth percentiles with tactile, offline-first simplicity.
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="#features">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"/><path d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z" />
+            <path d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z" />
+          </svg>
           Explore Features
         </a>
         <a class="btn-secondary" href="#pricing">View Pricing</a>
@@ -504,16 +610,22 @@
       </div>
       <div class="terminal-body">
         <div><span class="t-prompt">$</span> <span class="t-cmd">select-baby --active noah</span></div>
-        <div><span class="t-success">Active Baby Selected</span> <span class="t-comment">-- Noah • 3 months old • Normal Growth Range</span></div>
+        <div><span class="t-success">Active Baby Selected</span> <span class="t-comment">-- Noah • 3 months old • Normal
+            Growth Range</span></div>
         <div>&nbsp;</div>
         <div><span class="t-comment">-- Today's Realtime Metrics:</span></div>
-        <div><span class="t-prompt">></span> Last Diaper: <span class="t-value">23m ago</span> <span class="t-comment">(Type: Wet 💧 • Hydration Status: Perfect ✅)</span></div>
-        <div><span class="t-prompt">></span> Sleep Duration: <span class="t-pink">8.5 hours</span> <span class="t-comment">/ 14h recommended target (61% Complete)</span></div>
-        <div><span class="t-prompt">></span> Next Expected Nap: <span class="t-value">11:30 AM</span> <span class="t-comment">(Predictive scheduling algorithm active)</span></div>
+        <div><span class="t-prompt">></span> Last Diaper: <span class="t-value">23m ago</span> <span
+            class="t-comment">(Type: Wet 💧 • Hydration Status: Perfect ✅)</span></div>
+        <div><span class="t-prompt">></span> Sleep Duration: <span class="t-pink">8.5 hours</span> <span
+            class="t-comment">/ 14h recommended target (61% Complete)</span></div>
+        <div><span class="t-prompt">></span> Next Expected Nap: <span class="t-value">11:30 AM</span> <span
+            class="t-comment">(Predictive scheduling algorithm active)</span></div>
         <div>&nbsp;</div>
         <div><span class="t-prompt">$</span> <span class="t-cmd">status --feed</span></div>
-        <div><span class="t-success">Active Feed Detected</span> <span class="t-comment">-- Nursing 🤱 (Left Breast - Active Elapsed: 12m 45s)</span></div>
-        <div><span class="t-prompt">></span> Partner Connected: <span class="t-value">Dad 👨</span> <span class="t-comment">(Active Sync Indicator Light: ON ✅)</span></div>
+        <div><span class="t-success">Active Feed Detected</span> <span class="t-comment">-- Nursing 🤱 (Left Breast -
+            Active Elapsed: 12m 45s)</span></div>
+        <div><span class="t-prompt">></span> Partner Connected: <span class="t-value">Dad 👨</span> <span
+            class="t-comment">(Active Sync Indicator Light: ON ✅)</span></div>
       </div>
     </div>
 
@@ -525,7 +637,8 @@
         <div class="feature-card">
           <div class="feature-icon">🎨</div>
           <h3>Dynamic HSL Theme Engine</h3>
-          <p>Full system-adaptive Light and Dark modes. Guarantees WCAG AA high-contrast legibility for midnight alerts.</p>
+          <p>Full system-adaptive Light and Dark modes. Guarantees WCAG AA high-contrast legibility for midnight alerts.
+          </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎙️</div>
@@ -545,12 +658,14 @@
         <div class="feature-card">
           <div class="feature-icon">📲</div>
           <h3>Tactile One-Hand Design</h3>
-          <p>Vibrant, pill-shaped control pads and micro-animations connected to native haptics for effortless night tracking.</p>
+          <p>Vibrant, pill-shaped control pads and micro-animations connected to native haptics for effortless night
+            tracking.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔗</div>
           <h3>Co-Parent Synchronicity</h3>
-          <p>Real-time partner syncing with secure data sharing, allowing multiple caregivers to stay in perfect harmony.</p>
+          <p>Real-time partner syncing with secure data sharing, allowing multiple caregivers to stay in perfect
+            harmony.</p>
         </div>
       </div>
     </section>
@@ -602,26 +717,36 @@
     <section id="legal" style="margin-bottom: 80px;">
       <p class="section-label">Data Control</p>
       <h2 class="section-title">Sovereignty & Deletion</h2>
-      
+
       <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 24px; overflow: hidden;">
         <!-- Tabs Header -->
         <div style="display: flex; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);">
-          <button onclick="switchTab('privacy')" id="tab-privacy" style="flex: 1; padding: 20px; background: transparent; border: none; color: var(--primary); font-weight: 800; cursor: pointer; font-size: 14px; border-bottom: 2px solid var(--primary);">Privacy Policy</button>
-          <button onclick="switchTab('deletion')" id="tab-deletion" style="flex: 1; padding: 20px; background: transparent; border: none; color: var(--muted); font-weight: 800; cursor: pointer; font-size: 14px;">Account Deletion</button>
+          <button onclick="switchTab('privacy')" id="tab-privacy"
+            style="flex: 1; padding: 20px; background: transparent; border: none; color: var(--primary); font-weight: 800; cursor: pointer; font-size: 14px; border-bottom: 2px solid var(--primary);">Privacy
+            Policy</button>
+          <button onclick="switchTab('deletion')" id="tab-deletion"
+            style="flex: 1; padding: 20px; background: transparent; border: none; color: var(--muted); font-weight: 800; cursor: pointer; font-size: 14px;">Account
+            Deletion</button>
         </div>
-        
+
         <!-- Tab Content: Privacy -->
         <div id="content-privacy" style="padding: 40px; display: block;">
           <h3 style="margin-bottom: 16px;">Absolute Data Sovereignty</h3>
-          <p style="color: var(--muted-light); margin-bottom: 24px; font-size: 15px;">MamaMinder works offline-first. Your baby's growth stats, profiles, and photos never touch our servers unless you explicitly configure a secure co-parent connection.</p>
-          <a href="privacy.html" class="btn-secondary" style="padding: 10px 20px; font-size: 13px;">View Full Privacy Policy</a>
+          <p style="color: var(--muted-light); margin-bottom: 24px; font-size: 15px;">MamaMinder works offline-first.
+            Your baby's growth stats, profiles, and photos never touch our servers unless you explicitly configure a
+            secure co-parent connection.</p>
+          <a href="privacy.html" class="btn-secondary" style="padding: 10px 20px; font-size: 13px;">View Full Privacy
+            Policy</a>
         </div>
-        
+
         <!-- Tab Content: Deletion -->
         <div id="content-deletion" style="padding: 40px; display: none;">
           <h3 style="margin-bottom: 16px;">Purge Baby Logs Instantly</h3>
-          <p style="color: var(--muted-light); margin-bottom: 24px; font-size: 15px;">Deleting your baby profiles or sync connections Purges all cached records from the device sandbox immediately. We maintain zero remote backups of your nursery records.</p>
-          <a href="delete-account.html" class="btn-secondary" style="padding: 10px 20px; font-size: 13px;">View Deletion Instructions</a>
+          <p style="color: var(--muted-light); margin-bottom: 24px; font-size: 15px;">Deleting your baby profiles or
+            sync connections Purges all cached records from the device sandbox immediately. We maintain zero remote
+            backups of your nursery records.</p>
+          <a href="delete-account.html" class="btn-secondary" style="padding: 10px 20px; font-size: 13px;">View Deletion
+            Instructions</a>
         </div>
       </div>
     </section>
@@ -632,7 +757,7 @@
         const dele = document.getElementById('content-deletion');
         const tPriv = document.getElementById('tab-privacy');
         const tDele = document.getElementById('tab-deletion');
-        
+
         if (tab === 'privacy') {
           priv.style.display = 'block';
           dele.style.display = 'none';
@@ -656,7 +781,10 @@
   <footer>
     <div class="container">
       <p>&copy; 2026 MamaMinder. Designed to nurture, engineered to secure.</p>
-      <p style="margin-top:8px; color: var(--primary); font-weight: 500;">Crafted with 💖 by <a href="https://github.com/black0pal" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: underline;">black0pal</a> — building secure, premium, and beautiful digital experiences.</p>
+      <p style="margin-top:8px; color: var(--primary); font-weight: 500;">Crafted with by <a
+          href="https://github.com/black0pal" target="_blank"
+          style="color: var(--primary); font-weight: 700; text-decoration: underline;">black0pal</a> — building secure,
+        premium, and beautiful digital experiences.</p>
       <p style="margin-top:12px;">
         <a class="nav-link" href="#legal">Legal & Compliance</a> &nbsp;&middot;&nbsp;
         <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp;
@@ -666,4 +794,5 @@
     </div>
   </footer>
 </body>
+
 </html>
